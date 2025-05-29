@@ -45,7 +45,7 @@ function App() {
     };
 
     await createAnimal(item);
-
+setAnimals((prev)=> [...prev, item])
     setShow(false);
   }
 
