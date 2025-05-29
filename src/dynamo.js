@@ -9,7 +9,7 @@ const TABLE = "animals";
 const client = new DynamoDBClient({
   region: import.meta.env.VITE_AWS_REGION,
   credentials: {
-    accessKeyID: import.meta.env.VITE_AWS_ACCESS_KEY,
+    accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY,
     secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY,
   },
 });
