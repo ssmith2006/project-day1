@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import AnimalModal from "./Component/AnimalModal";
 import Button from "react-bootstrap/Button";
-import { createAnimal, scanAnimals } from "./dynamo";
+import {
+  createAnimal,
+  deleteAnimal,
+  scanAnimals,
+  toggleAdoption,
+} from "./dynamo";
 import Animals from "./Component/Animals";
 
 function App() {
@@ -19,7 +24,7 @@ function App() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    scanAnimals().then(setAnimals)
+    scanAnimals().then(setAnimals);
   }, []);
 
   function handleChange(e) {
@@ -32,6 +37,18 @@ function App() {
     });
   }
 
+  async function handleDelete(id) {
+    await deleteAnimal(id);
+    setAnimals((prev) => prev.filter((animal) => animal.id !== id));
+  }
+
+  async function handleToggle(animal) {
+    await toggleAdoption(animal.id, !animal.adopted);
+    setAnimals((prev) =>
+      prev.map((a) => (a.id === animal.id ? { ...a, adopted: !a.adopted } : a))
+    );
+  }
+
   async function handleAdd() {
     if (!form.name || !form.species || !form.age) return;
     const item = {
@@ -41,11 +58,12 @@ function App() {
       kidFriendly: form.kidFriendly,
       vaccinated: form.vaccinated,
       age: form.age,
+      adopted: false,
       imageUrl: form.imageUrl || "placeholder",
     };
 
     await createAnimal(item);
-setAnimals((prev)=> [...prev, item])
+    setAnimals((prev) => [...prev, item]);
     setShow(false);
   }
 
@@ -64,7 +82,12 @@ setAnimals((prev)=> [...prev, item])
         onSave={handleAdd}
         onChange={handleChange}
       />
-      <Animals animals={animals} title="Ready For Adoption" />
+      <Animals
+        animals={animals}
+        title="Ready For Adoption!"
+        onDelete={handleDelete}
+        onAdoptToggle={handleToggle}
+      />
     </>
   );
 }
