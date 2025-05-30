@@ -1,8 +1,10 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {
+  DeleteCommand,
   DynamoDBDocumentClient,
   PutCommand,
   ScanCommand,
+  UpdateCommand,
 } from "@aws-sdk/lib-dynamodb";
 
 const TABLE = "animals";
@@ -17,9 +19,9 @@ const client = new DynamoDBClient({
 const docClient = DynamoDBDocumentClient.from(client);
 
 export async function scanAnimals() {
-  const { Items} = await docClient.send(
+  const { Items } = await docClient.send(
     new ScanCommand({
-      TableName: TABLE
+      TableName: TABLE,
     })
   );
   return Items || [];
@@ -30,6 +32,21 @@ export async function createAnimal(animal) {
     new PutCommand({
       TableName: TABLE,
       Item: animal,
+    })
+  );
+}
+export async function deleteAnimal(id) {
+  await docClient.send(new DeleteCommand({ TableName: TABLE, Key: { id } }));
+}
+
+export async function toggleAdoption(id, adopted) {
+  await docClient.send(
+    new UpdateCommand({
+      TableName: TABLE,
+      Key: { id },
+      UpdateExpression: "SET #adopted= :val",
+      ExpressionAttributeNames: { "#adopted": "adopted" },
+      ExpressionAttributeValues: { val: adopted },
     })
   );
 }
