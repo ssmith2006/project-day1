@@ -39,6 +39,17 @@ export async function deleteAnimal(id) {
   await docClient.send(new DeleteCommand({ TableName: TABLE, Key: { id } }));
 }
 
+export async function updateAnimalImage(id, imageUrl) {
+  await docClient.send(
+    new UpdateCommand({
+      TableName: TABLE,
+      Key: { id },
+      UpdateExpression: "SET #imageUrl = :url",
+      ExpressionAttributeNames: { "#imageUrl": "imageUrl" },
+      ExpressionAttributeValues: { ":url": imageUrl },
+    })
+  );
+}
 export async function toggleAdoption(id, adopted) {
   await docClient.send(
     new UpdateCommand({
@@ -46,7 +57,7 @@ export async function toggleAdoption(id, adopted) {
       Key: { id },
       UpdateExpression: "SET #adopted= :val",
       ExpressionAttributeNames: { "#adopted": "adopted" },
-      ExpressionAttributeValues: { val: adopted },
+      ExpressionAttributeValues: { ":val": adopted },
     })
   );
 }
