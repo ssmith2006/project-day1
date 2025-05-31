@@ -83,14 +83,15 @@ function App() {
 
   return (
     <>
-    <div className="background"/>
-    <NavBarBS/>
+      <div className="background" />
+      <NavBarBS />
       <h1 className="d-flex justify-content-center mt-5 display-1 myheading ">
         Fur-Ever Friends Rescue
       </h1>
       <div className="d-flex justify-content-center mt-3">
         <Button
-          className="d-flex align-items-center" size="lg"
+          className="d-flex align-items-center"
+          size="lg"
           variant="primary"
           onClick={() => setShow(true)}
         >
@@ -98,7 +99,6 @@ function App() {
         </Button>
       </div>
 
-      
       <AnimalModal
         show={show}
         onHide={() => setShow(false)}
@@ -106,25 +106,34 @@ function App() {
         onSave={handleAdd}
         onChange={handleChange}
       />
-     <div className="mx-auto p-2 mt-5">
-        <Animals 
-        animals={available}
-        title="Ready For Adoption!"
-        nopets="No Pets Available"
-        onDelete={handleDelete}
-        onAdoptToggle={handleToggle}
-        onEditImage={handleEditImage}
-      /></div>
+      <div className="mx-auto p-2 mt-5">
+        <Animals
+          animals={available}
+          title="Ready For Adoption!"
+          nopets="No Pets Available"
+          onDelete={handleDelete}
+          onAdoptToggle={handleToggle}
+          onEditImage={handleEditImage}
+        />
+      </div>
 
-<div className="mx-auto p-2 mt-5">
-      <Animals
-        animals={adopted}
-        title="These Lovies have found a home!"
-        nopets="Please adopt a pet today!"
-        onDelete={handleDelete}
-        onAdoptToggle={handleToggle}
-        onEditImage={handleEditImage}
-      /></div>
+      <div className="mx-auto p-2 mt-5">
+        <Animals
+          animals={adopted}
+          title="These Lovies have found a home!"
+          nopets="Please adopt a pet today!"
+          onDelete={handleDelete}
+          onAdoptToggle={handleToggle}
+          onEditImage={handleEditImage}
+        />
+      </div>
+      <div>
+        <footer className="d-flex justify-content-center">
+          
+            <p><strong>&copy; 2025 Lovie's Pet Center. All Rights Reserved.</strong> </p>
+          
+        </footer>
+      </div>
     </>
   );
 }
