@@ -16,7 +16,7 @@ export default function Animals({
 
   return (
     <div className="container text-center my-5">
-      <h2>{title}</h2>
+      <h2 className="fs-1 mySubheading">{title}</h2>
 
       <div className="d-flex flex-row gap-5 p-5">
         {animals.map((animal) => (
@@ -30,7 +30,7 @@ export default function Animals({
                 width={100}
               />
 
-              <Button
+              <Button className="m-2"
                 size="sm"
                 variant="light"
                 onClick={() => onEditImage(animal)}
@@ -49,7 +49,7 @@ export default function Animals({
                 {animal.vaccinated && "Vaccinated"}
                 {!animal.vaccinated && "Not Vaccinated"}
               </div>
-              <Button size="sm" onClick={() => onAdoptToggle(animal)}>
+              <Button className="m-2" size="sm" onClick={() => onAdoptToggle(animal)}>
                 {animal.adopted && "Make Available"}
                 {!animal.adopted && "Adopt"}
               </Button>
