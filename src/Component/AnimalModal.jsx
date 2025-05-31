@@ -32,7 +32,7 @@ export default function AnimalModal({ show, onHide, form, onChange, onSave }) {
             <Form.Group controlId="formImageUrl">
               <Form.Label>Image URL</Form.Label>
               <Form.Control
-                name="name"
+                name="imageUrl"
                 value={form.imageUrl}
                 onChange={onChange}
               />
