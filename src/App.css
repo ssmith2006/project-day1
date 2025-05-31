@@ -1,0 +1,17 @@
+.background {
+    background-image: url('/images/Transparent_PNG_Background_with_Hearts.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: fixed;   /* Stay in place */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  
+    z-index: -1; 
+  }
+  .myheading{
+    text-shadow: 3px 3px 6px;
+  }
