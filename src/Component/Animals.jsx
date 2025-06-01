@@ -1,8 +1,6 @@
-import Image from "react-bootstrap/Image";
-
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { CardBody } from "react-bootstrap";
+
 
 export default function Animals({
   animals,
@@ -25,8 +23,8 @@ export default function Animals({
               <Card.Img
                 src={animal.imageUrl}
                 alt={animal.name}
-                rounded
-                fluid
+                rounded="true"
+                fluid="true"
                 width={100}
               />
 
