@@ -1,12 +1,24 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Installed Dependencies
+In this project, I installed dependencies that would help me in building a workable site.  Below are the dependencies installed (with installation setup to drop in terminal). I'm using Vite, so please install as written:
 
-Currently, two official plugins are available:
+-React
+npm create vite. (this setup will walk you through various installs.)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-DynamoDB
+npm i -D @aws-sdk/client-dynamodb @aws-sdk/lib-dynamodb
+These installs will help when using DynamoDB database (Be sure to setup DynamoDB with AWS)
 
-## Expanding the ESLint configuration
+-React Bootstrap
+npm i react-bootstrap bootstrap
+if using css, please add import bootstrap/dist/css/boo.nelifp. Visit www.react-bootstrap.nelify.app for further assistance.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Build Project
+In this project, I used DynamoDB to help make list for my faux pet adoption center.  Once the database was created and working well, I used frameworks and css to style.
+
+## Tests
+To make sure my project was running correctly, I tested several components such as my AnimalModal.jsx and Animal.jsx.  These files hold various information to allow my site to run smoothly.
+
+## Live Site
+I pushed my completed and error-free site to GitHub and created a live site using Nelify.  Please check it out https://loviespetcenter.netlify.app.
