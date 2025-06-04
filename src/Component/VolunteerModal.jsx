@@ -94,22 +94,45 @@ export default function VolunteerOppsModal({
               />
             </Form.Group>
             <Form.Group controlId="formTimeSlots">
-              <Form.Label>Time Slots:</Form.Label>
-              <Form.Control
-                name="timeSlots"
-                value={form.timeSlots}
+              <Form.Label>Time Slots</Form.Label>
+              <Form.Check
+                type="checkbox"
+                label="1st Shift"
+                name="timeslots1"
+                checked={form.timeslot1}
+                value={form.timeslot1}
+                onChange={onChange}
+              />
+
+              <Form.Check
+                type="checkbox"
+                label="2nd Shift"
+                name="timeslots2"
+                checked={form.timeslot2}
+                value={form.timeslot2}
+                onChange={onChange}
+              />
+
+              <Form.Check
+                type="checkbox"
+                label="All Day"
+                name="timeslots3"
+                checked={form.timeslot3}
+                value={form.timeslot3}
                 onChange={onChange}
               />
             </Form.Group>
-            <Form.Group>
-              <Form.Check
-                type="checkbox"
-                label="Filled"
-                name="isFilled"
-                checked={form.isFilled}
-                onChange={onChange}
-              ></Form.Check>
-            </Form.Group>
+            
+              <Form.Group>
+                <Form.Check
+                  type="checkbox"
+                  label="Filled"
+                  name="isFilled"
+                  checked={form.isFilled}
+                  onChange={onChange}
+                ></Form.Check>
+              </Form.Group>
+            
           </Form>
         </Modal.Body>
 
