@@ -14,7 +14,11 @@ export default function VolunteerOppsModal({ show, onHide, form, onChange, onSav
           <Form>
             <Form.Group controlId="formTitle">
               <Form.Label>Title</Form.Label>
-              <Form.Control name="title" value={form.title} onChange={onChange} />
+              <Form.Control
+                name="title"
+                value={form.title}
+                onChange={onChange}
+              />
             </Form.Group>
             <Form.Group controlId="formDescription">
               <Form.Label>Description</Form.Label>
@@ -33,6 +37,14 @@ export default function VolunteerOppsModal({ show, onHide, form, onChange, onSav
               <Form.Control
                 name="location"
                 value={form.location}
+                onChange={onChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="formTimeSlots">
+              <Form.Label>Time Slots:</Form.Label>
+              <Form.Control
+                name="timeSlots"
+                value={form.timeSlots}
                 onChange={onChange}
               />
             </Form.Group>
