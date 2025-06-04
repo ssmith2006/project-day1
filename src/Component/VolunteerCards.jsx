@@ -22,8 +22,8 @@ export default function VolunteerOppsCards({
           >
             <Card.Body className="d-flex flex-column align-items-center text-center">
               <div>
-                <strong>{opportunity.title}</strong>, {opportunity.description},
-                date: {""} {opportunity.date}, {opportunity.location},
+                <strong>{opportunity.title}</strong>:  {opportunity.description}
+                Day(s): {opportunity.days}  {opportunity.location}
               </div>
               <div>
                 <Button size="sm" onClick={() => onOppsToggle(opportunity)}>
