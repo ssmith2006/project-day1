@@ -14,7 +14,7 @@ export default function VolunteerOpps() {
   const [form, setForm] = useState({
     title: "",
     description: "",
-    date: "",
+    days: [],
     location: "",
     isFilled: false,
     timeSlots: "",
@@ -32,7 +32,7 @@ export default function VolunteerOpps() {
       id: crypto.randomUUID(),
       title: form.title,
       description: form.description,
-      date: form.date,
+      days: form.days,
       location: form.location,
       isFilled: false,
       timeSlots: form.timeSlots
@@ -69,7 +69,8 @@ export default function VolunteerOpps() {
 
   return (
     <>
-    <NavBarBS/>
+      <div className="VolOppsBackground" />
+      <NavBarBS />
       <h1>Volunteer Opportunities</h1>
       <Button size="lg" variant="primary" onClick={() => setShow(true)}>
         Add New Opportunity
