@@ -2,7 +2,13 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export default function VolunteerOppsModal({ show, onHide, form, onChange, onSave }) {
+export default function VolunteerOppsModal({
+  show,
+  onHide,
+  form,
+  onChange,
+  onSave,
+}) {
   return (
     <Modal show={show} onHide={onHide}>
       <Modal.Dialog>
@@ -28,9 +34,56 @@ export default function VolunteerOppsModal({ show, onHide, form, onChange, onSav
                 onChange={onChange}
               />
             </Form.Group>
-            <Form.Group controlId="formDate">
-              <Form.Label>Date</Form.Label>
-              <Form.Control name="date" value={form.date} onChange={onChange} />
+            <Form.Group controlId="formDays">
+              <Form.Label>Days</Form.Label>
+              <Form.Check
+                type="checkbox"
+                label="Monday"
+                name="day1"
+                checked={form.day1}
+                value={form.day1}
+                onChange={onChange}
+              />
+              <Form.Check
+                type="checkbox"
+                label="Tuesday"
+                name="days"
+                checked={form.day2}
+                value={form.day2}
+                onChange={onChange}
+              />
+              <Form.Check
+                type="checkbox"
+                label="Wednesday"
+                name="days"
+                checked={form.day3}
+                value={form.day3}
+                onChange={onChange}
+              />
+              <Form.Check
+                type="checkbox"
+                label="Thursday"
+                name="days"
+                checked={form.day4}
+                value={form.day4}
+                onChange={onChange}
+              />
+              <Form.Check
+                type="checkbox"
+                label="Friday"
+                name="days"
+                checked={form.day5}
+                value={form.day5}
+                onChange={onChange}
+              />
+              <Form.Check
+                type="checkbox"
+                label="Saturday"
+                name="days"
+                checked={form.day6}
+                value={form.day6}
+                onChange={onChange}
+              />
             </Form.Group>
             <Form.Group controlId="formLocation">
               <Form.Label>Location</Form.Label>
