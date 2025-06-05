@@ -1,12 +1,14 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export default function VolunteerOppsCards({
+export default function VolunteerCards({
   title,
   opportunities,
   noOppsText,
   onOppsToggle,
   onDelete,
+  onEditOpps,
+  onShowModal,
 }) {
   if (opportunities.length === 0) return <h2>{noOppsText}</h2>;
 
@@ -20,11 +22,30 @@ export default function VolunteerOppsCards({
             style={{ width: "15rem" }}
             key={opportunity.id}
           >
+            <Button
+              className="m-2"
+              size="sm"
+              variant="dark"
+              onClick={() => { onEditOpps(opportunity)
+                 onShowModal();
+              }}
+            >
+              Edit
+            </Button>
+
             <Card.Body className="d-flex flex-column align-items-center text-center">
               <div>
-                <strong>{opportunity.title}</strong>:  {opportunity.description}
-                Day(s): {opportunity.days}  {opportunity.location}
+                <strong>{opportunity.title}</strong>: {opportunity.description}
+                <p>Day(s):</p>
+                {opportunity.day1 && "Monday"}
+                {opportunity.day2 && "Tuesday"}
+                {opportunity.day3 && "Wednesday"}
+                {opportunity.day4 && "Thursday"}
+                {opportunity.day5 && "Friday"}
+                {opportunity.day6 && "Saturday"}
+                {opportunity.location}
               </div>
+
               <div>
                 <Button size="sm" onClick={() => onOppsToggle(opportunity)}>
                   {opportunity.isFilled && "Filled"}
