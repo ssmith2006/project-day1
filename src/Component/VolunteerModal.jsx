@@ -47,7 +47,7 @@ export default function VolunteerOppsModal({
               <Form.Check
                 type="checkbox"
                 label="Tuesday"
-                name="days"
+                name="day2"
                 checked={form.day2}
                 value={form.day2}
                 onChange={onChange}
@@ -55,7 +55,7 @@ export default function VolunteerOppsModal({
               <Form.Check
                 type="checkbox"
                 label="Wednesday"
-                name="days"
+                name="day3"
                 checked={form.day3}
                 value={form.day3}
                 onChange={onChange}
@@ -63,7 +63,7 @@ export default function VolunteerOppsModal({
               <Form.Check
                 type="checkbox"
                 label="Thursday"
-                name="days"
+                name="day4"
                 checked={form.day4}
                 value={form.day4}
                 onChange={onChange}
@@ -71,7 +71,7 @@ export default function VolunteerOppsModal({
               <Form.Check
                 type="checkbox"
                 label="Friday"
-                name="days"
+                name="day5"
                 checked={form.day5}
                 value={form.day5}
                 onChange={onChange}
@@ -79,7 +79,7 @@ export default function VolunteerOppsModal({
               <Form.Check
                 type="checkbox"
                 label="Saturday"
-                name="days"
+                name="day6"
                 checked={form.day6}
                 value={form.day6}
                 onChange={onChange}
@@ -93,46 +93,16 @@ export default function VolunteerOppsModal({
                 onChange={onChange}
               />
             </Form.Group>
-            <Form.Group controlId="formTimeSlots">
-              <Form.Label>Time Slots</Form.Label>
-              <Form.Check
-                type="checkbox"
-                label="1st Shift"
-                name="timeslots1"
-                checked={form.timeslot1}
-                value={form.timeslot1}
-                onChange={onChange}
-              />
 
+            <Form.Group>
               <Form.Check
                 type="checkbox"
-                label="2nd Shift"
-                name="timeslots2"
-                checked={form.timeslot2}
-                value={form.timeslot2}
+                label="Filled"
+                name="isFilled"
+                checked={form.isFilled}
                 onChange={onChange}
-              />
-
-              <Form.Check
-                type="checkbox"
-                label="All Day"
-                name="timeslots3"
-                checked={form.timeslot3}
-                value={form.timeslot3}
-                onChange={onChange}
-              />
+              ></Form.Check>
             </Form.Group>
-            
-              <Form.Group>
-                <Form.Check
-                  type="checkbox"
-                  label="Filled"
-                  name="isFilled"
-                  checked={form.isFilled}
-                  onChange={onChange}
-                ></Form.Check>
-              </Form.Group>
-            
           </Form>
         </Modal.Body>
 
