@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "../App.css";
 
 export default function VolunteerCards({
   title,
@@ -15,7 +16,7 @@ export default function VolunteerCards({
   return (
     <div className="container text-center my-5">
       <h2 className="fs-1 mySubheading">{title}</h2>
-      <div>
+      <div className="d-flex flex-row gap-5 p-5">
         {opportunities.map((opportunity) => (
           <Card
             className="shadow-lg"
@@ -26,8 +27,9 @@ export default function VolunteerCards({
               className="m-2"
               size="sm"
               variant="dark"
-              onClick={() => { onEditOpps(opportunity)
-                 onShowModal();
+              onClick={() => {
+                onEditOpps(opportunity);
+                onShowModal();
               }}
             >
               Edit
@@ -35,19 +37,22 @@ export default function VolunteerCards({
 
             <Card.Body className="d-flex flex-column align-items-center text-center">
               <div>
-                <strong>{opportunity.title}</strong>: {opportunity.description}
+                <strong>{opportunity.title}</strong> <br />
+                {opportunity.description}
                 <p>Day(s):</p>
-                {opportunity.day1 && "Monday"}
-                {opportunity.day2 && "Tuesday"}
-                {opportunity.day3 && "Wednesday"}
-                {opportunity.day4 && "Thursday"}
-                {opportunity.day5 && "Friday"}
-                {opportunity.day6 && "Saturday"}
+                <div className="d-flex align-content-center">
+                  {opportunity.day1 && "Monday" }
+                  {opportunity.day2 && "Tuesday"}
+                  {opportunity.day3 && "Wednesday"}
+                  {opportunity.day4 && "Thursday"}
+                  {opportunity.day5 && "Friday"}
+                  {opportunity.day6 && "Saturday"}
+                </div>
                 {opportunity.location}
               </div>
 
               <div>
-                <Button size="sm" onClick={() => onOppsToggle(opportunity)}>
+                <Button className="m-2" size="sm" onClick={() => onOppsToggle(opportunity)}>
                   {opportunity.isFilled && "Filled"}
                   {!opportunity.isFilled && "Open"}
                 </Button>
