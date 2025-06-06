@@ -85,15 +85,16 @@ function Home() {
 
   return (
     <>
-      <div className="background" />
+      <div className="VolOppsBackground" />
       <NavBarBS />
      
-      <h1 className="d-flex justify-content-center mt-5 display-1 myheading ">
+      <h1 className="d-flex justify-content-center mt-5 display-1 shadow ">
         Fur-Ever Friends Rescue
       </h1>
+      
       <div className="d-flex justify-content-center mt-3">
         <Button
-          className="d-flex align-items-center"
+          
           size="lg"
           variant="primary"
           onClick={() => setShow(true)}
