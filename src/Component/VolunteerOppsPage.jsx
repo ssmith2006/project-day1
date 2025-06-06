@@ -43,6 +43,7 @@ export default function VolunteerOpps() {
 
   async function handleAdd() {
     if (editOpportunities.id.length > 1) {
+      //we had .id.length but it gave an error of being undefined.  So I took the .id.length out and it worked but then another error occurred, so I added it back, now it works properly.//
       await handleEditOpps();
       setForm({
         title: editOpportunities.title,
@@ -57,8 +58,8 @@ export default function VolunteerOpps() {
         isFilled: editOpportunities.isFilled,
       });
       setShow(false); //closing the modal//
-      setOpportunities([]) //clear my opps list
-      scanOpportunity().then(setOpportunities); //scanning then storing?????//
+      setOpportunities([]); //clear my opps list
+      scanOpportunity().then(setOpportunities); //scanning then storing??????
       return;
     } else {
       console.log(editOpportunities);
