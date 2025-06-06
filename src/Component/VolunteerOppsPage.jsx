@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import VolunteerOppsModal from "./VolunteerModal";
+import "../App.css";
 import {
   createOpportunity,
   deleteOpportunity,
@@ -42,8 +43,8 @@ export default function VolunteerOpps() {
   }, []);
 
   async function handleAdd() {
-    if (editOpportunities.id.length > 1) {
-      //we had .id.length but it gave an error of being undefined.  So I took the .id.length out and it worked but then another error occurred, so I added it back, now it works properly.//
+    if (editOpportunities.id) {
+      //we had .id.length but it gave an error of being undefined.  So I took the .id.length out and it worked but then another error occurred, so I added it back, now it works properly. Update: removed .id.length, was still throwing an error.  We'll see if it does it tomorrow.//
       await handleEditOpps();
       setForm({
         title: editOpportunities.title,
@@ -122,7 +123,7 @@ export default function VolunteerOpps() {
 
   async function handleEditOpps() {
     await updateOpportunity(editOpportunities.id, form.title);
-    await updateOpportunityDescription(editOpportunities.id , form.description);
+    await updateOpportunityDescription(editOpportunities.id, form.description);
     await updateOpportunityLocation(editOpportunities.id, form.location);
     await updateOpportunity1(editOpportunities.id, form.day1);
     await updateOpportunity2(editOpportunities.id, form.day2);
@@ -140,10 +141,14 @@ export default function VolunteerOpps() {
     <>
       <div className="VolOppsBackground" />
       <NavBarBS />
-      <h1>Volunteer Opportunities</h1>
-      <Button size="lg" variant="primary" onClick={() => setShow(true)}>
-        Add New Opportunity
-      </Button>
+      <h1 className="d-flex justify-content-center mt-5 display-1 shadow ">
+        Volunteer Opportunities
+      </h1>
+      <div className="d-flex justify-content-center mt-3">
+        <Button size="lg" variant="primary" onClick={() => setShow(true)}>
+          Add New Opportunity
+        </Button>
+      </div>
 
       <VolunteerOppsModal
         show={show}
